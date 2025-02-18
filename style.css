@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: antiquewhite;
+}
+
+h1{
+    text-shadow: .5px 0.5px 1px rgba(248, 227, 227, 0.815);
+    opacity: 0.9;
+    animation: slideRight 1s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 0.9;
+    }
+}
+
+nav {
+    font-family: 'Ubuntu', serif;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    height: 55px;
+    background-color: black;
+    color: #fff;
+}
+
+@keyframes slideTop {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 0.9;
+    }
+}
+
+
+@keyframes slideBottom {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 0.9;
+    }
+}
+
+
+nav ul li {
+    padding: 0 12px;
+}
+
+.brand img {
+    width: 53px;
+    padding: 0 8px;
+}
+
+.brand {
+    color:rgb(52, 203, 47);
+    font-weight:bolder;
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 1.3rem;
+    animation:slideRight 0.6s ease-in-out;
+    transition:opacity 0.3s ease-in-out;
+}
+.brand2{
+    animation: slideTop 0.6s ease-in-out;
+    transition:opacity 0.3s ease-in-out;
+    font-weight: bolder;
+}
+.brand3{
+    font-weight: bolder;
+    animation: slideLeft 0.6s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+.container {
+    box-shadow:2px 2px 7px #000;
+    min-height: 75vh;
+    background-color: black;
+    color: rgb(223, 38, 38);
+    font-family: 'Varela Round', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 30px auto;
+    border-radius: 12px;
+    padding: 34px;
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-position: center;
+    font-weight: 500;
+}
+
+.songItemContainer .songItem{
+    width: 100%;
+    animation: slideLeft 0.6s ease-in-out;
+}
+
+.songItemContainer .songItem:hover{
+    transform: scale(1.04);
+    transition: 0.3s ease-in-out;
+    box-shadow: 2px 3px 10px 0px rgba(0,0,0,0.5);
+    
+}
+
+.SongList {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.SongBanner {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+}
+
+.bottom {
+    position: sticky;
+    height: 100px;
+    background-color: black;
+    color: white;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.icons {
+    margin-top: 10px;
+}
+
+.icons i {
+    cursor: pointer;
+    padding: 6px;
+    font-size: 2rem;
+    transition: transform 0.3s ease-in-out;
+    animation: slideLeft 0.6s ease-in-out;
+}
+
+.icons i:hover {
+    color: #ebe5e5;
+    transform: scale(1.2);
+}
+
+#myProgressBar {
+    width: 90%;
+    cursor: pointer;
+}
+
+.songItemContainer {
+    margin-top: 20px;
+}
+
+.songItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    color: black;
+    margin: 10px 0;
+    border-radius: 34px;
+    padding: 10px;
+}
+
+.songItem img {
+    width: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+}
+
+.timestamp {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    animation: slideTop 0.6s ease-in-out;
+}
+
+.timestamp span {
+    font-size: 0.8rem;
+    color: gray;
+    display: flex;
+    align-items: center;
+}
+
+.timestamp i {
+    cursor: pointer;
+    color: #841313;
+}
+
+.songInfo {
+    position: absolute;
+    left: 10vw;
+    font-family: 'Varela Round', sans-serif;
+    animation: slideRight 0.6s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 0.9;
+    }
+}
+
+
+.songInfo img {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+/* Responsiveness*/
+
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        width: 90%;
+        padding: 20px;
+    }
+    .SongList {
+        width: 100%;
+        text-align: center;
+    }
+    .SongBanner {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    .songItem {
+        flex-direction: column;
+        text-align: center;
+    }
+    .bottom {
+        height: 90px;
+    }
+    .icons i {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+    .songItem img {
+        width: 40px;
+    }
+    .bottom {
+        height: 80px;
+    }
+    .icons i {
+        font-size: 1.2rem;
+    }
+    #myProgressBar {
+        width: 95%;
+    }
+    .songInfo {
+        left: 5vw;
+    }
+}
