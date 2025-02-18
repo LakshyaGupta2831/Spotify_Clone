@@ -22,6 +22,24 @@ let songs = [
     {songName: "Hymn for the Weekend - Coldplay", filePath: 'video-img2/10.mp3', coverPath: 'video-img2/10.jpg'}
 ];
 
+// Handle Play/Pause Click
+masterPlay.addEventListener('click', () => {
+    if (audioElement.paused || audioElement.currentTime <= 0) {
+        audioElement.play();
+        masterPlay.classList.replace('fa-circle-play', 'fa-circle-pause');
+        gif.style.opacity = 1;
+        // Update the corresponding song button in the list
+        document.getElementById(songIndex).classList.replace('fa-circle-play', 'fa-circle-pause');
+    } else {
+        audioElement.pause();
+        masterPlay.classList.replace('fa-circle-pause', 'fa-circle-play');
+        gif.style.opacity = 0;
+        // Update the corresponding song button in the list
+        document.getElementById(songIndex).classList.replace('fa-circle-pause', 'fa-circle-play');
+    }
+});
+
+
 songItems.forEach((element, i)=>{
     element.getElementsByTagName("img")[0].src = songs[i].coverPath;
     element.getElementsByClassName("songName")[0].innerText = songs[i].songName;
