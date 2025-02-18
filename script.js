@@ -22,22 +22,32 @@ let songs = [
     {songName: "Hymn for the Weekend - Coldplay", filePath: 'video-img2/10.mp3', coverPath: 'video-img2/10.jpg'}
 ];
 
+// Select all song play buttons
+let songItemPlayButtons = Array.from(document.getElementsByClassName('songItemPlay'));
+
 // Handle Play/Pause Click
 masterPlay.addEventListener('click', () => {
     if (audioElement.paused || audioElement.currentTime <= 0) {
         audioElement.play();
-        masterPlay.classList.replace('fa-circle-play', 'fa-circle-pause');
+        masterPlay.classList.remove('fa-circle-play');
+        masterPlay.classList.add('fa-circle-pause');
         gif.style.opacity = 1;
-        // Update the corresponding song button in the list
-        document.getElementById(songIndex).classList.replace('fa-circle-play', 'fa-circle-pause');
+
+        // Ensure the current song's play button syncs with the master play button
+        songItemPlayButtons[songIndex].classList.remove('fa-circle-play');
+        songItemPlayButtons[songIndex].classList.add('fa-circle-pause');
     } else {
         audioElement.pause();
-        masterPlay.classList.replace('fa-circle-pause', 'fa-circle-play');
+        masterPlay.classList.remove('fa-circle-pause');
+        masterPlay.classList.add('fa-circle-play');
         gif.style.opacity = 0;
-        // Update the corresponding song button in the list
-        document.getElementById(songIndex).classList.replace('fa-circle-pause', 'fa-circle-play');
+
+        // Ensure the current song's play button syncs with the master pause button
+        songItemPlayButtons[songIndex].classList.remove('fa-circle-pause');
+        songItemPlayButtons[songIndex].classList.add('fa-circle-play');
     }
 });
+
 
 
 songItems.forEach((element, i)=>{
