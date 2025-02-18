@@ -12,7 +12,7 @@ let songItems = Array.from(document.getElementsByClassName('songItem'));
 
 let songs = [
     {songName: "Ainsi bas la vida - Mini World (Deluxe) by Indila", filePath: 'video-img1/1.mp3', coverPath: 'video-img1/song-1.jpg'},
-    {songName: "Faling - Trevor Daniel ", filePath: 'video-img1/2.mp3', coverPath: 'video-img1/2.jpg'},
+    {songName: "Falling - Trevor Daniel ", filePath: 'video-img1/2.mp3', coverPath: 'video-img1/2.jpg'},
     {songName: "Stereo Hearts (feat. Adam Levine) -  Gym Class Heroes", filePath: 'video-img1/3.mp3', coverPath: 'video-img1/3.jpg'},
     {songName: "Into Your Arms -  Witt Lowry (ft. Ava Max)", filePath: 'video-img1/4.mp3', coverPath: 'video-img1/4.jpg'},
     {songName: "Alone, Pt. II - (ft. Alan Walker, Ava Max )", filePath: 'video-img1/5.mp3', coverPath: 'video-img1/5.jpg'},
