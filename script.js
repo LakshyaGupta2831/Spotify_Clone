@@ -33,12 +33,19 @@ masterPlay.addEventListener('click', () => {
         audioElement.play();
         masterPlay.classList.replace('fa-circle-play', 'fa-circle-pause');
         gif.style.opacity = 1;
+
+        // Sync the play icon of the currently playing song
+        document.getElementById(songIndex).classList.replace('fa-circle-play', 'fa-circle-pause');
     } else {
         audioElement.pause();
         masterPlay.classList.replace('fa-circle-pause', 'fa-circle-play');
         gif.style.opacity = 0;
+
+        // Sync the pause icon of the currently playing song
+        document.getElementById(songIndex).classList.replace('fa-circle-pause', 'fa-circle-play');
     }
 });
+
 
 // Listen to Events
 audioElement.addEventListener('timeupdate', ()=>{
