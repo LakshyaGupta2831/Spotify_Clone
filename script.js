@@ -82,6 +82,7 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) =>
 
         // Update clicked song's icon to pause
         e.target.classList.replace('fa-circle-play', 'fa-circle-pause');
+        gif.style.opacity = 1;
     });
 });
 
