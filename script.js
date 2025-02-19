@@ -88,14 +88,23 @@ document.getElementById('previous').addEventListener('click', () => {
 });
 
 const playSelectedSong = () => {
-    makeAllPlays();
+    makeAllPlays(); 
+    
     audioElement.src = songs[songIndex].filePath;
     masterSongName.innerText = songs[songIndex].songName;
     audioElement.currentTime = 0;
     audioElement.play();
-    masterPlay.classList.replace('fa-circle-play', 'fa-circle-pause');
-    document.getElementById(songIndex).classList.replace('fa-circle-play', 'fa-circle-pause');
+
+    // Update Bottom Play Button
+    masterPlay.classList.remove('fa-circle-play');
+    masterPlay.classList.add('fa-circle-pause');
+
+    // Update Container Play Icon
+    let currentSongIcon = document.getElementById(songIndex);
+    currentSongIcon.classList.remove('fa-circle-play');
+    currentSongIcon.classList.add('fa-circle-pause');
 };
+
 
 audioElement.addEventListener('ended', () => {
     songIndex = (songIndex + 1) % songs.length;
