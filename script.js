@@ -33,33 +33,20 @@ masterPlay.addEventListener('click', () => {
         audioElement.play();
         masterPlay.classList.replace('fa-circle-play', 'fa-circle-pause');
         gif.style.opacity = 1;
-
-        // Sync with the currently playing song in the playlist
-        let currentSongIcon = document.getElementById(songIndex);
-        if (currentSongIcon) {
-            currentSongIcon.classList.replace('fa-circle-play', 'fa-circle-pause');
-        }
     } else {
         audioElement.pause();
         masterPlay.classList.replace('fa-circle-pause', 'fa-circle-play');
         gif.style.opacity = 0;
-
-        // Sync pause icon with the current playing song
-        let currentSongIcon = document.getElementById(songIndex);
-        if (currentSongIcon) {
-            currentSongIcon.classList.replace('fa-circle-pause', 'fa-circle-play');
-        }
     }
 });
 
-
 // Listen to Events
-audioElement.addEventListener('timeupdate', () => {
-    let progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
+audioElement.addEventListener('timeupdate', ()=>{
+    let progress = parseInt((audioElement.currentTime/audioElement.duration) * 100);   
     myProgressBar.value = progress;
 });
 
-myProgressBar.addEventListener('change', () => {
+myProgressBar.addEventListener('change', ()=>{
     audioElement.currentTime = myProgressBar.value * audioElement.duration / 100;
 });
 
@@ -67,32 +54,21 @@ const makeAllPlays = () => {
     document.querySelectorAll('.songItemPlay').forEach((element) => {
         element.classList.replace('fa-circle-pause', 'fa-circle-play');
     });
-});
-
+};
 
 Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) => {
     element.addEventListener('click', (e) => {
-        if (songIndex === parseInt(e.target.id) && !audioElement.paused) {
-            // If the same song is playing, pause it
-            audioElement.pause();
-            e.target.classList.replace('fa-circle-pause', 'fa-circle-play');
-            masterPlay.classList.replace('fa-circle-pause', 'fa-circle-play');
-            gif.style.opacity = 0;
-        } else {
-            // Play the selected song
-            makeAllPlays(); 
-            songIndex = parseInt(e.target.id);
-            audioElement.src = songs[songIndex].filePath;
-            masterSongName.innerText = songs[songIndex].songName;
-            audioElement.currentTime = 0;
-            audioElement.play();
-            gif.style.opacity = 1;
-            masterPlay.classList.replace('fa-circle-play', 'fa-circle-pause');
-            e.target.classList.replace('fa-circle-play', 'fa-circle-pause');
-        }
+        makeAllPlays();
+        songIndex = parseInt(e.target.id);
+        audioElement.src = songs[songIndex].filePath;
+        masterSongName.innerText = songs[songIndex].songName;
+        audioElement.currentTime = 0;
+        audioElement.play();
+        gif.style.opacity = 1;
+        masterPlay.classList.replace('fa-circle-play', 'fa-circle-pause');
+        e.target.classList.replace('fa-circle-play', 'fa-circle-pause');
     });
 });
-
 
 document.getElementById('next').addEventListener('click', () => {
     songIndex = (songIndex + 1) % songs.length;
@@ -105,22 +81,14 @@ document.getElementById('previous').addEventListener('click', () => {
 });
 
 const playSelectedSong = () => {
-    makeAllPlays(); 
+    makeAllPlays();
     audioElement.src = songs[songIndex].filePath;
     masterSongName.innerText = songs[songIndex].songName;
     audioElement.currentTime = 0;
     audioElement.play();
-    
-    // Update Bottom Play Button
-    masterPlay.classList.remove('fa-circle-play');
-    masterPlay.classList.add('fa-circle-pause');
-    
-    // Update Container Play Icon
-    let currentSongIcon = document.getElementById(songIndex);
-    currentSongIcon.classList.remove('fa-circle-play');
-    currentSongIcon.classList.add('fa-circle-pause');
+    masterPlay.classList.replace('fa-circle-play', 'fa-circle-pause');
+    document.getElementById(songIndex).classList.replace('fa-circle-play', 'fa-circle-pause');
 };
-
 
 audioElement.addEventListener('ended', () => {
     songIndex = (songIndex + 1) % songs.length;
